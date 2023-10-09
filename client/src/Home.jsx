@@ -20,7 +20,7 @@ const Home = () => {
   const [password,setPassword]=useState("")
 const navigate=useNavigate()
   useEffect(()=>{
-    axios.get("http://localhost:4242/shops").then(res=>setShopLocations(res.data))
+    axios.get("http://ec2-13-127-223-15.ap-south-1.compute.amazonaws.com/shops").then(res=>setShopLocations(res.data))
     .catch(error=>{
       console.log(error)
     })

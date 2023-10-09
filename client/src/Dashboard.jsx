@@ -36,7 +36,7 @@ const Dashboard = () => {
   useEffect(() => {
     setLoading(true)
     axios
-      .get('http://localhost:4242/shops')
+      .get('http://ec2-13-127-223-15.ap-south-1.compute.amazonaws.com/shops')
       .then((res) => {
         setShopLocations(res.data);
         setAllShopLocations(res.data);
@@ -61,7 +61,7 @@ setLoading(false)
     }
     try {
       
-      const response = await axios.post('http://localhost:4242/shop', {
+      const response = await axios.post('http://ec2-13-127-223-15.ap-south-1.compute.amazonaws.com/shop', {
         name,
         latitude,
         longitude,
@@ -149,7 +149,7 @@ setLoading(false)
         image: banner ? banner : null,
       };
   
-      const response = await axios.put(`http://localhost:4242/shop/${shopId}`, updatedData);
+      const response = await axios.put(`http://ec2-13-127-223-15.ap-south-1.compute.amazonaws.com/shop/${shopId}`, updatedData);
       if (response?.data?.message) {
         alert(response.data.message);
       } else {
@@ -194,7 +194,7 @@ setLoading(false)
   const handleDeleteShop = async (latitude, longitude,image) => {
     setLoading(true);
     try {
-      await axios.delete('http://localhost:4242/shop', {
+      await axios.delete('http://ec2-13-127-223-15.ap-south-1.compute.amazonaws.com/shop', {
         data: { latitude, longitude,image },
       });
       setShopLocations(prevShopLocations =>
